@@ -21,7 +21,11 @@ class SplashVC: UIViewController {
         super.viewDidAppear(animated)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            app.router.goToLoginVC()
+            if let _ = app.defaults.getAccessToken() {
+                app.router.goToTabbar()
+            } else {
+                app.router.goToLoginVC()
+            }
         }
     }
     

@@ -12,6 +12,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
+    var defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -28,7 +30,7 @@ class LoginVC: UIViewController {
                 if let _ = response.success {
                     let alert = UIAlertController(title: "BİLGİ", message: "Başarıyla oturum sağlandı.", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
-                        
+                        app.defaults.setAccessToken(accessToken: response.requestToken)
                         app.router.goToTabbar()
                     }))
                     self.present(alert, animated: true, completion: nil)

@@ -13,5 +13,6 @@ final class AppContainer {
     
     let networkManager = NetworkManager()
     let router = AppRouter()
+    let defaults = UserDefaultsManager()
     
 }

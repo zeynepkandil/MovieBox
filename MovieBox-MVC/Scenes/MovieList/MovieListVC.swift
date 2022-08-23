@@ -54,6 +54,7 @@ extension MovieListVC : UITableViewDelegate,UITableViewDataSource {
             if let movies = searchResponse?.results {
                 cell.titleLabel.text = movies[indexPath.row].title
                 cell.descLabel.text = movies[indexPath.row].overview
+                cell.postImageURL = String(format: "https://image.tmdb.org/t/p/original%@", movies[indexPath.row].posterPath)
                 return cell
             }
         }
@@ -66,7 +67,7 @@ extension MovieListVC : UITableViewDelegate,UITableViewDataSource {
         if let movies = searchResponse?.results {
             return movies.count
         }
-        return 1
+        return 0
     }
     
 }
