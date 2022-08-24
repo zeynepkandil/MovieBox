@@ -14,7 +14,7 @@ protocol NetworkDelegate {
     
     func createRequestToken(completion: @escaping (Result<RequestTokenResponse, NetworkError>) -> ())
     
-    func searchMovie(name: String, completion: @escaping (Result<SearchMovieResponse, NetworkError>) -> ())
+    func searchMovie(name: String, pageNumber: Int , completion: @escaping (Result<SearchMovieResponse, NetworkError>) -> ())
     
 }
 
@@ -33,8 +33,8 @@ final class NetworkManager : NetworkDelegate {
         request(target: .createRequestToken, completion: completion)
     }
     
-    func searchMovie(name: String, completion: @escaping (Result<SearchMovieResponse, NetworkError>) -> ()) {
-        request(target: .searchMovie(name: name), completion: completion)
+    func searchMovie(name: String, pageNumber: Int, completion: @escaping (Result<SearchMovieResponse, NetworkError>) -> ()) {
+        request(target: .searchMovie(name: name, pageNumber: pageNumber), completion: completion)
     }
     
 }

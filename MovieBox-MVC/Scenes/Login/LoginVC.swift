@@ -23,7 +23,10 @@ class LoginVC: UIViewController {
     
 
     @IBAction func login(_ sender: UIButton) {
+        app.hud.show(in: self.view, animated: true)
         app.networkManager.createRequestToken { result in
+            app.hud.dismiss(animated: true)
+            
             switch result {
             case .success(let response):
                 

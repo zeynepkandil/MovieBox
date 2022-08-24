@@ -6,24 +6,47 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieDetailVC: UIViewController {
 
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var originalTitle: UILabel!
+    @IBOutlet weak var owerviewTextView: UITextView!
+    
+    var movie : Results?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        prepareUI()
+    }
+    
+    func prepareUI(){
+        guard let movie = movie else {
+            return
+        }
+        movieImageView.kf.setImage(with: URL(string: String(format: "https://image.tmdb.org/t/p/original%@",movie.posterPath)))
+        ratingLabel.text = String(movie.voteAverage) + "/10"
+        dateLabel.text = Utils.formattedDateFromString(dateString: movie.releaseDate, withFormat: "dd.MM.yyyy")
+        circleView.makeRounded()
+        originalTitle.text = movie.title
+        owerviewTextView.text = movie.overview
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.hideNavigationBar()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

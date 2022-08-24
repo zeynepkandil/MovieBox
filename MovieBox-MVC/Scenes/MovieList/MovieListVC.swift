@@ -13,8 +13,8 @@ class MovieListVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var searchResponse: SearchMovieResponse?
-    
     var movieQueryValue = String()
+    var pageNumber = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,10 @@ class MovieListVC: UIViewController {
         tableView.register(MovieCell.nib(), forCellReuseIdentifier: MovieCell.identifier)
     }
 
-    func searchMovie(movieName: String){
-        app.networkManager.searchMovie(name: movieName) { result in
+    func searchMovie(movieName: String, pageNumber: Int){
+        app.hud.show(in: self.view, animated: true)
+        app.networkManager.searchMovie(name: movieName, pageNumber: pageNumber) { result in
+            app.hud.dismiss(animated: true)
             switch result {
             case .success(let response):
                 self.searchResponse = response
@@ -62,12 +64,30 @@ extension MovieListVC : UITableViewDelegate,UITableViewDataSource {
         return UITableViewCell()
     }
     
-   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let movies = searchResponse?.results {
             return movies.count
         }
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let movie = searchResponse?.results[indexPath.row] {
+            let detailVC = app.router.getMovieDetailVC(movie: movie)
+            self.navigationController?.title = movie.title
+            self.navigationItem.backButtonTitle = ""
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let movies = searchResponse?.results {
+            if indexPath.row == movies.count - 1 && movies.count % 20 == 0 {
+                pageNumber += 1
+                searchMovie(movieName: self.movieQueryValue, pageNumber: self.pageNumber)
+            }
+        }
+        
     }
     
 }
@@ -77,9 +97,10 @@ extension MovieListVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.count > 0 {
+            pageNumber = 1
             movieQueryValue = searchText
             
-            searchMovie(movieName: movieQueryValue)
+            searchMovie(movieName: movieQueryValue, pageNumber: self.pageNumber)
         }
     }
     

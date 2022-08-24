@@ -9,14 +9,14 @@ import Moya
 
 enum API {
     case createRequestToken
-    case searchMovie(name: String)
+    case searchMovie(name: String, pageNumber: Int)
 }
 
 extension API : TargetType {
     var baseURL: URL {
         switch self {
-        case .searchMovie(let name):
-            return URL(string: String(format: URLConstants.baseUrl, "search/movie?api_key=\(URLConstants.apiKey)&query=\(name)"))!
+        case .searchMovie(let name, let pageNumber):
+            return URL(string: String(format: URLConstants.baseUrl, "search/movie?page=\(pageNumber)&api_key=\(URLConstants.apiKey)&query=\(name)"))!
         default:
             return URL(string: String(format: URLConstants.baseUrl, "authentication/token/new?api_key=\(URLConstants.apiKey)"))!
         }

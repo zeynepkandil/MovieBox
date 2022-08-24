@@ -8,7 +8,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--TabbarVC-->
+        <scene sceneID="n4z-MX-vVQ">
+            <objects>
+                <tabBarController storyboardIdentifier="TabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="HKP-9i-icm" customClass="TabbarVC" customModule="MovieBox_MVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ofG-Gz-y5b">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cW7-Zb-Qr5" kind="relationship" relationship="viewControllers" id="Rke-aL-3R7"/>
+                        <segue destination="eLv-Ms-MPd" kind="relationship" relationship="viewControllers" id="5TP-Qb-WCH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0C-Sy-IbK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="-659"/>
+        </scene>
+        <!--SearchMovie-->
         <scene sceneID="rl4-e2-muq">
             <objects>
                 <viewController storyboardIdentifier="MovieListVC" id="eLv-Ms-MPd" customClass="MovieListVC" customModule="MovieBox_MVC" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +56,7 @@
                             <constraint firstItem="feU-cn-rMo" firstAttribute="bottom" secondItem="avw-PA-9To" secondAttribute="bottom" id="x5b-fy-Ta4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6Qc-Y1-7fx"/>
+                    <tabBarItem key="tabBarItem" title="SearchMovie" id="6Qc-Y1-7fx"/>
                     <connections>
                         <outlet property="searchBar" destination="gNy-lH-O9y" id="ddP-E4-lrD"/>
                         <outlet property="tableView" destination="avw-PA-9To" id="sUs-gA-1sv"/>
@@ -45,25 +64,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1X5-Ex-Rbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262.3188405797102" y="102.45535714285714"/>
+            <point key="canvasLocation" x="1677" y="80"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="VhS-dc-REa">
-            <objects>
-                <viewController storyboardIdentifier="MovieDetailVC" id="Oca-4v-E4O" customClass="MovieDetailVC" customModule="MovieBox_MVC" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EDV-qh-kdk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="vcA-Gs-5Al"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="jAv-UV-SrK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eqI-Yq-QF0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2039.1304347826087" y="101.78571428571428"/>
-        </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="gNt-E2-Juo">
             <objects>
                 <viewController storyboardIdentifier="FavoritesVC" id="cW7-Zb-Qr5" customClass="FavoritesVC" customModule="MovieBox_MVC" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,36 +76,144 @@
                         <viewLayoutGuide key="safeArea" id="sW0-HP-Kf0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="UPC-bi-tcv"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="UPC-bi-tcv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXI-iA-08u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2847.826086956522" y="101.78571428571428"/>
+            <point key="canvasLocation" x="2413" y="80"/>
         </scene>
-        <!--TabbarVC-->
-        <scene sceneID="n4z-MX-vVQ">
+        <!--Movie DetailVC-->
+        <scene sceneID="DUx-ll-Yej">
             <objects>
-                <tabBarController storyboardIdentifier="TabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="HKP-9i-icm" customClass="TabbarVC" customModule="MovieBox_MVC" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ofG-Gz-y5b">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
+                <viewController storyboardIdentifier="MovieDetailVC" id="9Bl-tU-0o6" customClass="MovieDetailVC" customModule="MovieBox_MVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I12-JB-v92">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UJT-cY-hKT">
+                                <rect key="frame" x="20" y="44" width="374" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="IEj-ct-Nuq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imdb" translatesAutoresizingMaskIntoConstraints="NO" id="0kd-PQ-kSa">
+                                <rect key="frame" x="16" y="316" width="50" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="FLS-Yj-KLZ"/>
+                                    <constraint firstAttribute="height" constant="24" id="ZO4-Ki-Vec"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate" translatesAutoresizingMaskIntoConstraints="NO" id="Khm-Gg-lsZ">
+                                <rect key="frame" x="74" y="320" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Bds-yy-BuY"/>
+                                    <constraint firstAttribute="width" constant="16" id="aoG-Uk-UGA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.8/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCU-E2-64Q">
+                                <rect key="frame" x="98" y="320" width="40" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="4Em-4f-3eS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wde-mu-ghf">
+                                <rect key="frame" x="146" y="326" width="4" height="4"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="Jn2-cv-DpW"/>
+                                    <constraint firstAttribute="width" constant="4" id="mbd-B8-o47"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.08.2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-VQ-dUs">
+                                <rect key="frame" x="158" y="320.5" width="80" height="15.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="g7w-5H-ezF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moonrise Kingdom (2012)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snr-rR-qIn">
+                                <rect key="frame" x="16" y="356" width="382" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8Xn-Hs-Eiu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xKV-Xm-WKk">
+                                <rect key="frame" x="16" y="412" width="382" height="450"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dor-wx-75B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qCU-E2-64Q" firstAttribute="leading" secondItem="Khm-Gg-lsZ" secondAttribute="trailing" constant="8" id="0cg-6m-xo3"/>
+                            <constraint firstItem="Snr-rR-qIn" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="16" id="5nF-Kn-4b4"/>
+                            <constraint firstItem="0kd-PQ-kSa" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="16" id="5sU-AN-NFx"/>
+                            <constraint firstItem="xKV-Xm-WKk" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="16" id="88e-Pn-8Jf"/>
+                            <constraint firstItem="Snr-rR-qIn" firstAttribute="top" secondItem="0kd-PQ-kSa" secondAttribute="bottom" constant="16" id="8n9-cb-TDe"/>
+                            <constraint firstItem="xKV-Xm-WKk" firstAttribute="bottom" secondItem="Dor-wx-75B" secondAttribute="bottom" id="ELn-TW-brp"/>
+                            <constraint firstItem="0kd-PQ-kSa" firstAttribute="top" secondItem="UJT-cY-hKT" secondAttribute="bottom" constant="16" id="Esc-TY-7Vg"/>
+                            <constraint firstItem="Khm-Gg-lsZ" firstAttribute="centerY" secondItem="0kd-PQ-kSa" secondAttribute="centerY" id="ITm-Fy-QGX"/>
+                            <constraint firstItem="UJT-cY-hKT" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="20" id="JUw-CW-qSV"/>
+                            <constraint firstItem="UJT-cY-hKT" firstAttribute="top" secondItem="Dor-wx-75B" secondAttribute="top" id="L7d-Vj-Qgu"/>
+                            <constraint firstItem="xKV-Xm-WKk" firstAttribute="top" secondItem="Snr-rR-qIn" secondAttribute="bottom" constant="16" id="Uh9-lA-5rv"/>
+                            <constraint firstItem="Dor-wx-75B" firstAttribute="trailing" secondItem="UJT-cY-hKT" secondAttribute="trailing" constant="20" id="bc7-KQ-IHd"/>
+                            <constraint firstItem="Dor-wx-75B" firstAttribute="trailing" secondItem="xKV-Xm-WKk" secondAttribute="trailing" constant="16" id="cwj-yr-3cz"/>
+                            <constraint firstItem="mKc-VQ-dUs" firstAttribute="centerY" secondItem="wde-mu-ghf" secondAttribute="centerY" id="ex7-ek-HRU"/>
+                            <constraint firstItem="mKc-VQ-dUs" firstAttribute="leading" secondItem="wde-mu-ghf" secondAttribute="trailing" constant="8" id="fua-gx-Y7l"/>
+                            <constraint firstItem="qCU-E2-64Q" firstAttribute="centerY" secondItem="Khm-Gg-lsZ" secondAttribute="centerY" id="g8j-hD-5Wg"/>
+                            <constraint firstItem="Dor-wx-75B" firstAttribute="trailing" secondItem="Snr-rR-qIn" secondAttribute="trailing" constant="16" id="pPJ-wk-1xI"/>
+                            <constraint firstItem="Khm-Gg-lsZ" firstAttribute="leading" secondItem="0kd-PQ-kSa" secondAttribute="trailing" constant="8" id="qVL-86-QQk"/>
+                            <constraint firstItem="wde-mu-ghf" firstAttribute="centerY" secondItem="qCU-E2-64Q" secondAttribute="centerY" id="rvf-h6-yzu"/>
+                            <constraint firstItem="wde-mu-ghf" firstAttribute="leading" secondItem="qCU-E2-64Q" secondAttribute="trailing" constant="8" id="soe-CS-xje"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <segue destination="Oca-4v-E4O" kind="relationship" relationship="viewControllers" id="uRy-zf-Swc"/>
-                        <segue destination="cW7-Zb-Qr5" kind="relationship" relationship="viewControllers" id="Rke-aL-3R7"/>
-                        <segue destination="eLv-Ms-MPd" kind="relationship" relationship="viewControllers" id="5TP-Qb-WCH"/>
+                        <outlet property="circleView" destination="wde-mu-ghf" id="1fh-tJ-40w"/>
+                        <outlet property="dateLabel" destination="mKc-VQ-dUs" id="bau-1g-hP3"/>
+                        <outlet property="movieImageView" destination="UJT-cY-hKT" id="oDy-cU-RXu"/>
+                        <outlet property="originalTitle" destination="Snr-rR-qIn" id="K6T-3v-biC"/>
+                        <outlet property="owerviewTextView" destination="xKV-Xm-WKk" id="mzp-1A-hem"/>
+                        <outlet property="ratingLabel" destination="qCU-E2-64Q" id="qH2-Kt-Hkm"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y0C-Sy-IbK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2R9-zz-i4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="-659"/>
+            <point key="canvasLocation" x="3015.9420289855075" y="-660.26785714285711"/>
         </scene>
     </scenes>
     <resources>
+        <image name="imdb" width="49" height="24"/>
+        <image name="rate" width="16" height="16"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import JGProgressHUD
 
 let app = AppContainer()
 
@@ -14,5 +15,6 @@ final class AppContainer {
     let networkManager = NetworkManager()
     let router = AppRouter()
     let defaults = UserDefaultsManager()
+    let hud = JGProgressHUD()
     
 }

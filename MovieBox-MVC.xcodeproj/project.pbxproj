@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		801CE18560DEF2B423ACAEB4 /* Pods_MovieBox_MVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D62D627E6F80B7A62EF0D6 /* Pods_MovieBox_MVC.framework */; };
+		8601B9A128B65919003F7ABB /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601B9A028B65919003F7ABB /* UIViewController+Ext.swift */; };
+		8601B9A528B65B67003F7ABB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601B9A428B65B67003F7ABB /* Utils.swift */; };
 		8691423628B3972400315E46 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691423528B3972400315E46 /* AppRouter.swift */; };
 		8691423A28B3B81C00315E46 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8691423928B3B81C00315E46 /* Tabbar.storyboard */; };
 		8691423D28B3B8B600315E46 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691423C28B3B8B600315E46 /* TabbarVC.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		08D62D627E6F80B7A62EF0D6 /* Pods_MovieBox_MVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieBox_MVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1068552B7C00A57280595E91 /* Pods-MovieBox-MVC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBox-MVC.debug.xcconfig"; path = "Target Support Files/Pods-MovieBox-MVC/Pods-MovieBox-MVC.debug.xcconfig"; sourceTree = "<group>"; };
+		8601B9A028B65919003F7ABB /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		8601B9A428B65B67003F7ABB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8691423528B3972400315E46 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		8691423928B3B81C00315E46 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
 		8691423C28B3B8B600315E46 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8601B9A328B65B67003F7ABB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8601B9A428B65B67003F7ABB /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8691423B28B3B86800315E46 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,7 @@
 			children = (
 				86CA620628B5108B00EEDC49 /* UIView+Ext.swift */,
 				86CA620828B5109400EEDC49 /* UIImage+Ext.swift */,
+				8601B9A028B65919003F7ABB /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -256,6 +269,7 @@
 				86C35E3C28ACF50B00CD5F72 /* Network */,
 				86CA620A28B513C100EEDC49 /* Managers */,
 				86C35E3B28ACF50100CD5F72 /* Extensions */,
+				8601B9A328B65B67003F7ABB /* Utils */,
 				86C35E3D28ACF51A00CD5F72 /* Resources */,
 				86E7767628ACE36200FC14FC /* Info.plist */,
 			);
@@ -410,6 +424,8 @@
 				86E7766928ACE36100FC14FC /* AppDelegate.swift in Sources */,
 				86C35E4728AD0E2000CD5F72 /* URLConstants.swift in Sources */,
 				8691424A28B3BF4200315E46 /* MovieCell.swift in Sources */,
+				8601B9A128B65919003F7ABB /* UIViewController+Ext.swift in Sources */,
+				8601B9A528B65B67003F7ABB /* Utils.swift in Sources */,
 				86E7766B28ACE36100FC14FC /* SceneDelegate.swift in Sources */,
 				8691423628B3972400315E46 /* AppRouter.swift in Sources */,
 				86C35E4528AD061800CD5F72 /* API.swift in Sources */,

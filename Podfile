@@ -7,5 +7,7 @@ target 'MovieBox-MVC' do
 
   # Pods for MovieBox-MVC
     pod 'Moya', '~> 15.0'
+    pod 'JGProgressHUD' , '~> 2.2'
+    pod 'Kingfisher', '~> 7.0'
 
 end
