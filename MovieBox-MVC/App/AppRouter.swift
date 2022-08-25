@@ -87,6 +87,10 @@ final class AppRouter {
         return viewController
     }
     
-    
+    func getUpcomingMoviesVC() -> UpcomingMoviesVC {
+        let storyboard = UIStoryboard(name: "Tabbar", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "UpcomingMoviesVC") as! UpcomingMoviesVC
+        return viewController
+    }
     
 }

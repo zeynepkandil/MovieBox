@@ -21,6 +21,7 @@
                     <connections>
                         <segue destination="cW7-Zb-Qr5" kind="relationship" relationship="viewControllers" id="Rke-aL-3R7"/>
                         <segue destination="eLv-Ms-MPd" kind="relationship" relationship="viewControllers" id="5TP-Qb-WCH"/>
+                        <segue destination="76M-kS-In9" kind="relationship" relationship="viewControllers" id="u7f-kP-v7i"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0C-Sy-IbK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -81,6 +82,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXI-iA-08u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2413" y="80"/>
+        </scene>
+        <!--UpcomingMoviesVC-->
+        <scene sceneID="BQw-lL-I1T">
+            <objects>
+                <viewController storyboardIdentifier="UpcomingMoviesVC" title="UpcomingMoviesVC" id="76M-kS-In9" customClass="UpcomingMoviesVC" customModule="MovieBox_MVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yWN-3N-46o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0gI-Q0-fSe">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6LS-d9-vtn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6LS-d9-vtn" firstAttribute="trailing" secondItem="0gI-Q0-fSe" secondAttribute="trailing" id="KVI-TC-53d"/>
+                            <constraint firstItem="0gI-Q0-fSe" firstAttribute="top" secondItem="6LS-d9-vtn" secondAttribute="top" id="ZdQ-b3-LO4"/>
+                            <constraint firstItem="6LS-d9-vtn" firstAttribute="bottom" secondItem="0gI-Q0-fSe" secondAttribute="bottom" id="daj-3v-Rp7"/>
+                            <constraint firstItem="0gI-Q0-fSe" firstAttribute="leading" secondItem="6LS-d9-vtn" secondAttribute="leading" id="kr6-Y7-ifE"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Upcoming" id="dXd-Gg-v7W"/>
+                    <connections>
+                        <outlet property="tableView" destination="0gI-Q0-fSe" id="WG2-ao-vHc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3OB-No-bYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3221.739130434783" y="66.964285714285708"/>
         </scene>
         <!--Movie DetailVC-->
         <scene sceneID="DUx-ll-Yej">

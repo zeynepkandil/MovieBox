@@ -10,6 +10,7 @@ import Moya
 enum API {
     case createRequestToken
     case searchMovie(name: String, pageNumber: Int)
+    case upcomingMovies
 }
 
 extension API : TargetType {
@@ -17,6 +18,8 @@ extension API : TargetType {
         switch self {
         case .searchMovie(let name, let pageNumber):
             return URL(string: String(format: URLConstants.baseUrl, "search/movie?page=\(pageNumber)&api_key=\(URLConstants.apiKey)&query=\(name)"))!
+        case .upcomingMovies:
+            return URL(string: String(format: URLConstants.baseUrl,"movie/upcoming?&api_key=\(URLConstants.apiKey)"))!
         default:
             return URL(string: String(format: URLConstants.baseUrl, "authentication/token/new?api_key=\(URLConstants.apiKey)"))!
         }
@@ -28,6 +31,8 @@ extension API : TargetType {
             return ""
         case .searchMovie:
             return ""
+        case .upcomingMovies:
+            return ""
         }
     }
     
@@ -37,6 +42,8 @@ extension API : TargetType {
             return .get
         case .searchMovie:
             return .get
+        case .upcomingMovies:
+            return.get
         }
     }
     
@@ -58,6 +65,8 @@ extension API : TargetType {
         case .searchMovie:
             return .requestPlain
                 //.requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .upcomingMovies:
+            return.requestPlain
         }
     }
     

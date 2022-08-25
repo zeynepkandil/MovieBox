@@ -16,6 +16,9 @@ protocol NetworkDelegate {
     
     func searchMovie(name: String, pageNumber: Int , completion: @escaping (Result<SearchMovieResponse, NetworkError>) -> ())
     
+    func upcomingMovies(completion: @escaping (Result<UpcomingMoviesResponse, NetworkError>) -> ())
+
+    
 }
 
 final class NetworkManager : NetworkDelegate {
@@ -37,9 +40,12 @@ final class NetworkManager : NetworkDelegate {
         request(target: .searchMovie(name: name, pageNumber: pageNumber), completion: completion)
     }
     
+    func upcomingMovies(completion: @escaping (Result<UpcomingMoviesResponse, NetworkError>) -> ()) {
+        request(target: .upcomingMovies, completion: completion)
+
+    }
+
 }
-
-
 
 private extension NetworkManager {
     private func request<T: Decodable>(target: API, completion: @escaping (Result<T, NetworkError>) -> ()) {
