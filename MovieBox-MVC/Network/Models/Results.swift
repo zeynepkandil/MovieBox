@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Results: Codable {
+struct Results: Codable , Equatable {
 
     var adult: Bool
     var backdropPath: String

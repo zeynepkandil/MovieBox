@@ -16,12 +16,15 @@ class MovieDetailVC: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var originalTitle: UILabel!
     @IBOutlet weak var owerviewTextView: UITextView!
+    @IBOutlet weak var favouriteButton: UIButton!
     
     var movie : Results?
+    var isFavourite : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
+        checkFavourite()
     }
     
     func prepareUI(){
@@ -46,7 +49,36 @@ class MovieDetailVC: UIViewController {
         self.hideNavigationBar()
     }
     
-
+    func checkFavourite(){
+        let favouriteMovies = app.defaults.getFavouriteMovies()
+        guard let favouriteMovies = favouriteMovies else {
+            return
+        }
+        for m in favouriteMovies {
+            if m.id == movie?.id {
+                isFavourite = true
+                if isFavourite {
+                    favouriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                } else {
+                    favouriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                }
+            }
+        }
+    }
+    
+    @IBAction func favouriteButton(_ sender: UIButton) {
+        if isFavourite {
+            app.defaults.removeFavouriteMovie(movie: movie!)
+            favouriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            self.isFavourite = false
+        } else {
+            app.defaults.saveFavouriteMovie(movie: movie!)
+            favouriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            self.isFavourite = true
+        }
+    }
+    
    
+    
 
 }

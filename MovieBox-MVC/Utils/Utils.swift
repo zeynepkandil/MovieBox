@@ -19,7 +19,7 @@ final class Utils {
             
             return outputFormatter.string(from: date)
         }
-        
+         
         return nil
     }
     

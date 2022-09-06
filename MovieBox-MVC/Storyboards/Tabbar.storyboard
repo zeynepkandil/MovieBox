@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +58,9 @@
                             <constraint firstItem="feU-cn-rMo" firstAttribute="bottom" secondItem="avw-PA-9To" secondAttribute="bottom" id="x5b-fy-Ta4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="SearchMovie" id="6Qc-Y1-7fx"/>
+                    <tabBarItem key="tabBarItem" title="SearchMovie" image="film" catalog="system" id="6Qc-Y1-7fx">
+                        <imageReference key="landscapeImage" image="film" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="searchBar" destination="gNy-lH-O9y" id="ddP-E4-lrD"/>
                         <outlet property="tableView" destination="avw-PA-9To" id="sUs-gA-1sv"/>
@@ -77,7 +80,7 @@
                         <viewLayoutGuide key="safeArea" id="sW0-HP-Kf0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" id="UPC-bi-tcv"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="UPC-bi-tcv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXI-iA-08u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,7 +108,7 @@
                             <constraint firstItem="0gI-Q0-fSe" firstAttribute="leading" secondItem="6LS-d9-vtn" secondAttribute="leading" id="kr6-Y7-ifE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upcoming" id="dXd-Gg-v7W"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming" image="list.and.film" catalog="system" id="dXd-Gg-v7W"/>
                     <connections>
                         <outlet property="tableView" destination="0gI-Q0-fSe" id="WG2-ao-vHc"/>
                     </connections>
@@ -179,51 +182,61 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moonrise Kingdom (2012)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snr-rR-qIn">
-                                <rect key="frame" x="16" y="356" width="382" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="8Xn-Hs-Eiu"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="356" width="238" height="23.5"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xKV-Xm-WKk">
-                                <rect key="frame" x="16" y="412" width="382" height="450"/>
+                                <rect key="frame" x="16" y="395.5" width="382" height="466.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duv-9J-VGI">
+                                <rect key="frame" x="262" y="343" width="47" height="49"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                    <color key="baseForegroundColor" red="0.87450981139999995" green="0.73333334920000004" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="favouriteButton:" destination="9Bl-tU-0o6" eventType="touchUpInside" id="afj-dw-cSM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dor-wx-75B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qCU-E2-64Q" firstAttribute="leading" secondItem="Khm-Gg-lsZ" secondAttribute="trailing" constant="8" id="0cg-6m-xo3"/>
-                            <constraint firstItem="Snr-rR-qIn" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="16" id="5nF-Kn-4b4"/>
+                            <constraint firstItem="Duv-9J-VGI" firstAttribute="top" secondItem="UJT-cY-hKT" secondAttribute="bottom" constant="43" id="4gt-OR-arM"/>
                             <constraint firstItem="0kd-PQ-kSa" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="16" id="5sU-AN-NFx"/>
                             <constraint firstItem="xKV-Xm-WKk" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="16" id="88e-Pn-8Jf"/>
-                            <constraint firstItem="Snr-rR-qIn" firstAttribute="top" secondItem="0kd-PQ-kSa" secondAttribute="bottom" constant="16" id="8n9-cb-TDe"/>
                             <constraint firstItem="xKV-Xm-WKk" firstAttribute="bottom" secondItem="Dor-wx-75B" secondAttribute="bottom" id="ELn-TW-brp"/>
                             <constraint firstItem="0kd-PQ-kSa" firstAttribute="top" secondItem="UJT-cY-hKT" secondAttribute="bottom" constant="16" id="Esc-TY-7Vg"/>
                             <constraint firstItem="Khm-Gg-lsZ" firstAttribute="centerY" secondItem="0kd-PQ-kSa" secondAttribute="centerY" id="ITm-Fy-QGX"/>
+                            <constraint firstItem="xKV-Xm-WKk" firstAttribute="top" secondItem="Snr-rR-qIn" secondAttribute="bottom" constant="16" id="Ihz-8R-mNf"/>
                             <constraint firstItem="UJT-cY-hKT" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="20" id="JUw-CW-qSV"/>
                             <constraint firstItem="UJT-cY-hKT" firstAttribute="top" secondItem="Dor-wx-75B" secondAttribute="top" id="L7d-Vj-Qgu"/>
-                            <constraint firstItem="xKV-Xm-WKk" firstAttribute="top" secondItem="Snr-rR-qIn" secondAttribute="bottom" constant="16" id="Uh9-lA-5rv"/>
+                            <constraint firstItem="Snr-rR-qIn" firstAttribute="top" secondItem="0kd-PQ-kSa" secondAttribute="bottom" constant="16" id="RdT-Mj-3CZ"/>
+                            <constraint firstItem="Duv-9J-VGI" firstAttribute="leading" secondItem="Snr-rR-qIn" secondAttribute="trailing" constant="8" id="ThL-Co-O4G"/>
                             <constraint firstItem="Dor-wx-75B" firstAttribute="trailing" secondItem="UJT-cY-hKT" secondAttribute="trailing" constant="20" id="bc7-KQ-IHd"/>
                             <constraint firstItem="Dor-wx-75B" firstAttribute="trailing" secondItem="xKV-Xm-WKk" secondAttribute="trailing" constant="16" id="cwj-yr-3cz"/>
                             <constraint firstItem="mKc-VQ-dUs" firstAttribute="centerY" secondItem="wde-mu-ghf" secondAttribute="centerY" id="ex7-ek-HRU"/>
                             <constraint firstItem="mKc-VQ-dUs" firstAttribute="leading" secondItem="wde-mu-ghf" secondAttribute="trailing" constant="8" id="fua-gx-Y7l"/>
                             <constraint firstItem="qCU-E2-64Q" firstAttribute="centerY" secondItem="Khm-Gg-lsZ" secondAttribute="centerY" id="g8j-hD-5Wg"/>
-                            <constraint firstItem="Dor-wx-75B" firstAttribute="trailing" secondItem="Snr-rR-qIn" secondAttribute="trailing" constant="16" id="pPJ-wk-1xI"/>
                             <constraint firstItem="Khm-Gg-lsZ" firstAttribute="leading" secondItem="0kd-PQ-kSa" secondAttribute="trailing" constant="8" id="qVL-86-QQk"/>
                             <constraint firstItem="wde-mu-ghf" firstAttribute="centerY" secondItem="qCU-E2-64Q" secondAttribute="centerY" id="rvf-h6-yzu"/>
                             <constraint firstItem="wde-mu-ghf" firstAttribute="leading" secondItem="qCU-E2-64Q" secondAttribute="trailing" constant="8" id="soe-CS-xje"/>
+                            <constraint firstItem="Snr-rR-qIn" firstAttribute="leading" secondItem="Dor-wx-75B" secondAttribute="leading" constant="16" id="vfU-4c-hPY"/>
+                            <constraint firstItem="xKV-Xm-WKk" firstAttribute="top" secondItem="Duv-9J-VGI" secondAttribute="bottom" constant="3.5" id="xLm-wq-r4v"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="circleView" destination="wde-mu-ghf" id="1fh-tJ-40w"/>
                         <outlet property="dateLabel" destination="mKc-VQ-dUs" id="bau-1g-hP3"/>
+                        <outlet property="favouriteButton" destination="Duv-9J-VGI" id="C8V-WX-OsW"/>
                         <outlet property="movieImageView" destination="UJT-cY-hKT" id="oDy-cU-RXu"/>
                         <outlet property="originalTitle" destination="Snr-rR-qIn" id="K6T-3v-biC"/>
                         <outlet property="owerviewTextView" destination="xKV-Xm-WKk" id="mzp-1A-hem"/>
@@ -236,7 +249,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="film" catalog="system" width="128" height="93"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="imdb" width="49" height="24"/>
+        <image name="list.and.film" catalog="system" width="128" height="86"/>
         <image name="rate" width="16" height="16"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

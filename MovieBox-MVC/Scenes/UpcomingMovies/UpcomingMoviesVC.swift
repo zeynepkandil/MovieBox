@@ -6,32 +6,33 @@
 //
 
 import UIKit
+import SwiftUI
+import Moya
 
 class UpcomingMoviesVC : UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     var upcomingMoviesResponse : UpcomingMoviesResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         prepareUI()
         upcomingMovies()
-
-
+        
+        
         // Do any additional setup after loading the view.
     }
-
-
+    
     func prepareUI(){
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UpcomingCell.nib(), forCellReuseIdentifier: UpcomingCell.identifier)
-
+        
     }
-
+    
     func upcomingMovies(){
         app.networkManager.upcomingMovies { result in
             switch result {
@@ -41,22 +42,22 @@ class UpcomingMoviesVC : UIViewController {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-
-
+            
+            
         }
-
+        
     }
 }
 
 extension UpcomingMoviesVC : UITableViewDataSource,UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let movies = upcomingMoviesResponse?.results {
             return movies.count
         }
-          return 0
+        return 0
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0
     }
@@ -73,8 +74,8 @@ extension UpcomingMoviesVC : UITableViewDataSource,UITableViewDelegate {
             }
         }
         return UITableViewCell()
-
+        
     }
     
-    }
+}
 

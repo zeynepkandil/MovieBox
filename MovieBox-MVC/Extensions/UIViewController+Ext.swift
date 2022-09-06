@@ -9,6 +9,9 @@ import UIKit
 
 extension UIViewController {
     func showNavigationBar(){
+        let backButton = UIBarButtonItem()
+        backButton.title = "Movies"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
