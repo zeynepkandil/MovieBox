@@ -74,7 +74,7 @@ final class AppRouter {
         return viewController
     }
     
-    func getMovieDetailVC(movie: Results) -> MovieDetailVC {
+    func getMovieDetailVC(movie: Movie) -> MovieDetailVC {
         let storyboard = UIStoryboard(name: "Tabbar", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailVC
         viewController.movie = movie

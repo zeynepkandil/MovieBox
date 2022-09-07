@@ -68,7 +68,7 @@ extension UpcomingMoviesVC : UITableViewDataSource,UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingCell.identifier, for: indexPath) as? UpcomingCell{
             if let movies = upcomingMoviesResponse?.results {
                 cell.nameLabel.text = movies[indexPath.row].title
-                cell.dateLabel.text = movies[indexPath.row].releaseDate
+                cell.dateLabel.text = Utils.formattedDateFromString(dateString: movies[indexPath.row].releaseDate, withFormat:"dd.MM.yyyy")
                 cell.postImageURL = String(format: "https://image.tmdb.org/t/p/original%@", movies[indexPath.row].posterPath)
                 return cell
             }

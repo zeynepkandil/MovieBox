@@ -18,7 +18,7 @@ class MovieDetailVC: UIViewController {
     @IBOutlet weak var owerviewTextView: UITextView!
     @IBOutlet weak var favouriteButton: UIButton!
     
-    var movie : Results?
+    var movie : Movie?
     var isFavourite : Bool = false
     
     override func viewDidLoad() {

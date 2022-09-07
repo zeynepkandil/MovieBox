@@ -51,7 +51,7 @@ import Foundation
 struct SearchMovieResponse: Codable {
 
     var page: Int
-    var results: [Results]
+    var results: [Movie]
     var totalPages: Int
     var totalResults: Int
 
@@ -65,7 +65,7 @@ struct SearchMovieResponse: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         page = try values.decode(Int.self, forKey: .page)
-        results = try values.decode([Results].self, forKey: .results)
+        results = try values.decode([Movie].self, forKey: .results)
         totalPages = try values.decode(Int.self, forKey: .totalPages)
         totalResults = try values.decode(Int.self, forKey: .totalResults)
     }
