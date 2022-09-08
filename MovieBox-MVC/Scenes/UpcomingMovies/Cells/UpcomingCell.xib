@@ -23,13 +23,12 @@
                             <constraint firstAttribute="height" constant="150" id="mZq-E8-Oe9"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5T-tw-xM6">
-                        <rect key="frame" x="175" y="20" width="204" height="50"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5T-tw-xM6">
+                        <rect key="frame" x="175" y="20" width="244" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="204" id="A0x-85-g4p"/>
                             <constraint firstAttribute="height" constant="50" id="efZ-rx-IUZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,12 +38,13 @@
                             <constraint firstAttribute="width" constant="204" id="dBp-cD-Fji"/>
                             <constraint firstAttribute="height" constant="50" id="zog-L3-cd0"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="T5T-tw-xM6" secondAttribute="trailing" constant="20" id="Hvd-iw-sgv"/>
                     <constraint firstItem="UZp-Wm-EkN" firstAttribute="leading" secondItem="h8c-AY-6ru" secondAttribute="trailing" constant="15" id="JP7-Rv-2Fg"/>
                     <constraint firstItem="T5T-tw-xM6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="KA1-28-NWg"/>
                     <constraint firstItem="UZp-Wm-EkN" firstAttribute="top" secondItem="T5T-tw-xM6" secondAttribute="bottom" constant="20" id="Njx-9U-rbk"/>

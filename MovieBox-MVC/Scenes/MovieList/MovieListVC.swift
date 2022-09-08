@@ -19,7 +19,6 @@ class MovieListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
-        
     }
     
     func prepareUI(){
@@ -75,7 +74,6 @@ extension MovieListVC : UITableViewDelegate,UITableViewDataSource {
         if let movie = searchResponse?.results[indexPath.row] {
             let detailVC = app.router.getMovieDetailVC(movie: movie)
             self.navigationController?.title = movie.title
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "hh", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
