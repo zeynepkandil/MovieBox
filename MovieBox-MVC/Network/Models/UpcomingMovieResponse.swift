@@ -14,6 +14,9 @@ struct UpcomingMoviesResponse: Codable {
     var results: [Movie]?
     var totalPages: Int?
     var totalResults: Int?
+    var statusCode: Int?
+    var statusMessage: String?
+    var success: Bool?
 
     private enum CodingKeys: String, CodingKey {
         case dates = "dates"
@@ -21,6 +24,9 @@ struct UpcomingMoviesResponse: Codable {
         case results = "results"
         case totalPages = "total_pages"
         case totalResults = "total_results"
+        case statusCode = "status_code"
+        case statusMessage = "status_message"
+        case success = "success"
     }
 
     init(from decoder: Decoder) throws {
@@ -30,6 +36,9 @@ struct UpcomingMoviesResponse: Codable {
         results = try values.decode([Movie].self, forKey: .results)
         totalPages = try values.decode(Int.self, forKey: .totalPages)
         totalResults = try values.decode(Int.self, forKey: .totalResults)
+        statusCode = try values.decodeIfPresent(Int.self, forKey: .statusCode)
+        statusMessage = try values.decodeIfPresent(String.self, forKey: .statusMessage)
+        success = try values.decodeIfPresent(Bool.self, forKey: .success)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -39,6 +48,9 @@ struct UpcomingMoviesResponse: Codable {
         try container.encode(results, forKey: .results)
         try container.encode(totalPages, forKey: .totalPages)
         try container.encode(totalResults, forKey: .totalResults)
+        try container.encodeIfPresent(statusCode, forKey: .statusCode)
+        try container.encodeIfPresent(statusMessage, forKey: .statusMessage)
+        try container.encodeIfPresent(success, forKey: .success)
     }
 
 }

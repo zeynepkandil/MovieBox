@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
-import Moya
 
 class UpcomingMoviesVC : UIViewController {
     
@@ -19,34 +17,39 @@ class UpcomingMoviesVC : UIViewController {
         super.viewDidLoad()
         
         prepareUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         upcomingMovies()
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     func prepareUI(){
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UpcomingCell.nib(), forCellReuseIdentifier: UpcomingCell.identifier)
-        
     }
     
     func upcomingMovies(){
+        app.hud.show(in: self.view, animated: true)
         app.networkManager.upcomingMovies { result in
+            app.hud.dismiss(animated: true)
             switch result {
             case.success(let response):
-                self.upcomingMoviesResponse = response
-                self.tableView.reloadData()
+                if let message = response.statusMessage {
+                    Utils.showAlert(viewController: self, title: "ERROR", message: message)
+                } else {
+                    self.upcomingMoviesResponse = response
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                }
             case .failure(let error):
                 print(error.localizedDescription)
+                Utils.showAlert(viewController: self, title: "ERROR", message: "İstek zaman aşımına uğradı.")
             }
-            
-            
         }
-        
     }
+    
+    
 }
 
 extension UpcomingMoviesVC : UITableViewDataSource,UITableViewDelegate {
@@ -61,8 +64,6 @@ extension UpcomingMoviesVC : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingCell.identifier, for: indexPath) as? UpcomingCell{
