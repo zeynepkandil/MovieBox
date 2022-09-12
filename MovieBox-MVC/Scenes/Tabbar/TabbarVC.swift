@@ -26,7 +26,6 @@ class TabbarVC: UITabBarController {
         
         upcomingMoviesVC.tabBarItem = UITabBarItem.init(title: "Upcoming", image: UIImage(systemName: "list.bullet.rectangle"), selectedImage: UIImage(systemName: "list.bullet.rectangle.fill"))
                 
-                
         self.setViewControllers([movieListVC,favoritesVC,upcomingMoviesVC], animated: true)
     }
 

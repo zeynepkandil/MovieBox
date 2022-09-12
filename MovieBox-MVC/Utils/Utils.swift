@@ -24,11 +24,6 @@ final class Utils {
         return nil
     }
     
-    static func showAlert(viewController: UIViewController,title:String, message: String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(action)
-        viewController.present(alert, animated: true)
-    }
+   
     
 }

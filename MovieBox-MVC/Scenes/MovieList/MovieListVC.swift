@@ -13,6 +13,7 @@ class MovieListVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var searchResponse: SearchMovieResponse?
+    var results = [Movie]()
     var movieQueryValue = String()
     var pageNumber = 1
     
@@ -35,6 +36,7 @@ class MovieListVC: UIViewController {
             switch result {
             case .success(let response):
                 self.searchResponse = response
+                self.results.append(contentsOf: response.results)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
@@ -52,40 +54,32 @@ extension MovieListVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell {
-            if let movies = searchResponse?.results {
-                cell.titleLabel.text = movies[indexPath.row].title
-                cell.descLabel.text = movies[indexPath.row].overview
-                cell.postImageURL = String(format: "https://image.tmdb.org/t/p/original%@", movies[indexPath.row].posterPath)
-                return cell
-            }
+            cell.titleLabel.text = results[indexPath.row].title
+            cell.descLabel.text = results[indexPath.row].overview
+            cell.postImageURL = String(format: "https://image.tmdb.org/t/p/original%@", results[indexPath.row].posterPath)
+            return cell
+            
         }
         
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movies = searchResponse?.results {
-            return movies.count
-        }
-        return 0
+        return results.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let movie = searchResponse?.results[indexPath.row] {
-            let detailVC = app.router.getMovieDetailVC(movie: movie)
-            self.navigationController?.title = movie.title
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }
+        let movie = results[indexPath.row]
+        let detailVC = app.router.getMovieDetailVC(movie: movie)
+        self.navigationController?.title = movie.title
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let movies = searchResponse?.results {
-            if indexPath.row == movies.count - 1 && movies.count % 20 == 0 {
-                pageNumber += 1
-                searchMovie(movieName: self.movieQueryValue, pageNumber: self.pageNumber)
-            }
+        if indexPath.row == results.count - 1 && results.count % 20 == 0 {
+            pageNumber += 1
+            searchMovie(movieName: self.movieQueryValue, pageNumber: self.pageNumber)
         }
-        
     }
     
 }

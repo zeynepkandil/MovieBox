@@ -36,7 +36,7 @@ class UpcomingMoviesVC : UIViewController {
             switch result {
             case.success(let response):
                 if let message = response.statusMessage {
-                    Utils.showAlert(viewController: self, title: "ERROR", message: message)
+                    self.showAlert(title: "ERROR", message: message)
                 } else {
                     self.upcomingMoviesResponse = response
                     self.tableView.reloadData()
@@ -44,7 +44,7 @@ class UpcomingMoviesVC : UIViewController {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                Utils.showAlert(viewController: self, title: "ERROR", message: "İstek zaman aşımına uğradı.")
+                self.showAlert(title: "ERROR", message: "İstek zaman aşımına uğradı.")
             }
         }
     }

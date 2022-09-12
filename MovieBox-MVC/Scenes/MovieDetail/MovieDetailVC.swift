@@ -41,7 +41,7 @@ class MovieDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.showNavigationBar()
+        self.showNavigationBar(backButtonTitle: "Movies")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
