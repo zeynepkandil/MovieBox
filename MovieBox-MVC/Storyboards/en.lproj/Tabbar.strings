@@ -1,0 +1,27 @@
+
+/* Class = "UITabBarItem"; title = "SearchMovie"; ObjectID = "6Qc-Y1-7fx"; */
+"6Qc-Y1-7fx.title" = "SearchMovie";
+
+/* Class = "UIViewController"; title = "UpcomingMoviesVC"; ObjectID = "76M-kS-In9"; */
+"76M-kS-In9.title" = "UpcomingMoviesVC";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Duv-9J-VGI"; */
+"Duv-9J-VGI.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Moonrise Kingdom (2012)"; ObjectID = "Snr-rR-qIn"; */
+"Snr-rR-qIn.text" = "Moonrise Kingdom (2012)";
+
+/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "UPC-bi-tcv"; */
+"UPC-bi-tcv.title" = "Favorites";
+
+/* Class = "UITabBarItem"; title = "Upcoming"; ObjectID = "dXd-Gg-v7W"; */
+"dXd-Gg-v7W.title" = "Upcoming";
+
+/* Class = "UILabel"; text = "19.08.2022"; ObjectID = "mKc-VQ-dUs"; */
+"mKc-VQ-dUs.text" = "19.08.2022";
+
+/* Class = "UILabel"; text = "7.8/10"; ObjectID = "qCU-E2-64Q"; */
+"qCU-E2-64Q.text" = "7.8/10";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "xKV-Xm-WKk"; */
+"xKV-Xm-WKk.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";

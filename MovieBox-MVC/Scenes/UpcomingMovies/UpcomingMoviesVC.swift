@@ -17,6 +17,8 @@ class UpcomingMoviesVC : UIViewController {
         super.viewDidLoad()
         
         prepareUI()
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

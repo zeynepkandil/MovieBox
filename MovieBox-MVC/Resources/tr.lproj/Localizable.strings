@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  MovieBox-MVC
+
+  Created by Kafein on 15.09.2022.
+  
+*/
+
+"search" = "Ara" ;
+"favorites" = "Favoriler" ;
+"upcoming" = "Çok Yakında" ;
+"login" = "Giriş" ;

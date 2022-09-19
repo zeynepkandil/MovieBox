@@ -9,6 +9,7 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
@@ -17,8 +18,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        loginButton.setTitle(Localization.string(key: "login", defaultValue: "Giriş"), for: .normal) 
     }
     
     @IBAction func login(_ sender: UIButton) {

@@ -20,13 +20,15 @@ class TabbarVC: UITabBarController {
         let favoritesVC = app.router.getFavoritesVC()
         let upcomingMoviesVC = app.router.getUpcomingMoviesVC()
         
-        movieListVC.tabBarItem = UITabBarItem.init(title: "Movies", image: UIImage(systemName: "film"), selectedImage: UIImage(systemName: "film.fill"))
+        movieListVC.tabBarItem = UITabBarItem.init(title:Localization.string(key: "search", defaultValue: "Ara"), image: UIImage(systemName: "film"), selectedImage: UIImage(systemName: "film.fill"))
         
-        favoritesVC.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(systemName: "heart" ), selectedImage: UIImage(systemName: "heart.fill"))
+        favoritesVC.tabBarItem = UITabBarItem.init(title: Localization.string(key: "favorites", defaultValue: "Favoriler"), image: UIImage(systemName: "heart" ), selectedImage: UIImage(systemName: "heart.fill"))
         
-        upcomingMoviesVC.tabBarItem = UITabBarItem.init(title: "Upcoming", image: UIImage(systemName: "list.bullet.rectangle"), selectedImage: UIImage(systemName: "list.bullet.rectangle.fill"))
+        upcomingMoviesVC.tabBarItem = UITabBarItem.init(title: Localization.string(key: "upcoming", defaultValue: "Çok Yakında"), image: UIImage(systemName: "list.bullet.rectangle"), selectedImage: UIImage(systemName: "list.bullet.rectangle.fill"))
                 
         self.setViewControllers([movieListVC,favoritesVC,upcomingMoviesVC], animated: true)
+        
+        
     }
 
 }
