@@ -11,14 +11,14 @@ class UpcomingMoviesVC : UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    let refreshControl = UIRefreshControl()
+
     var upcomingMoviesResponse : UpcomingMoviesResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareUI()
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,7 +29,36 @@ class UpcomingMoviesVC : UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UpcomingCell.nib(), forCellReuseIdentifier: UpcomingCell.identifier)
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        upcomingMoviesForRefresh()
+    }
+    
+    func upcomingMoviesForRefresh(){
+        app.networkManager.upcomingMovies { result in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.refreshControl.endRefreshing()
+            }
+
+            switch result {
+            case.success(let response):
+                if let message = response.statusMessage {
+                    self.showAlert(title: "ERROR", message: message)
+                } else {
+                    self.upcomingMoviesResponse = response
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.showAlert(title: "ERROR", message: "İstek zaman aşımına uğradı.")
+            }
+        }
+    }
+    
     
     func upcomingMovies(){
         app.hud.show(in: self.view, animated: true)
